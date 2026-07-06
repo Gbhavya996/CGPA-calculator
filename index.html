@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>CGPA CALCULATOR</h1>
+
+    <!-- Input Section -->
+    <div class="input-section">
+
+        <input
+            type="text"
+            id="subject"
+            placeholder="Subject Name"
+        >
+
+        <input
+            type="number"
+            id="credits"
+            placeholder="Credits"
+            min="1"
+        >
+
+        <select id="grade">
+            <option value="">Grade</option>
+            <option value="10">O (10)</option>
+            <option value="9">A+ (9)</option>
+            <option value="8">A (8)</option>
+            <option value="7">B+ (7)</option>
+            <option value="6">B (6)</option>
+            <option value="5">C (5)</option>
+            <option value="0">F (0)</option>
+        </select>
+
+        <button onclick="addSubject()">
+            ADD SUBJECT
+        </button>
+
+        <button onclick="downloadCSV()">
+            EXPORT CSV
+        </button>
+
+    </div>
+
+    <!-- Subject Table -->
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Subject</th>
+            <th>Credits</th>
+            <th>Grade</th>
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+    </table>
+
+    <!-- Dashboard -->
+
+    <div class="dashboard">
+
+        <div class="score-box">
+
+            <h3>Current GPA</h3>
+
+            <span id="gpa">0.00</span>
+
+        </div>
+
+        <div class="score-box">
+
+            <h3>Total Credits</h3>
+
+            <span id="totalCredits">0</span>
+
+        </div>
+
+    </div>
+
+    <!-- What If Simulator -->
+
+    <div class="simulator-section">
+
+        <h2>🔮 What-If CGPA Simulator</h2>
+
+        <p>
+            Estimate the GPA required in your remaining semesters.
+        </p>
+
+        <div class="sim-grid">
+
+            <div class="sim-input-group">
+
+                <label>Target Graduation CGPA</label>
+
+                <input
+                    type="number"
+                    id="targetCgpa"
+                    step="0.01"
+                    min="0"
+                    max="10"
+                    placeholder="Example: 8.5"
+                >
+
+            </div>
+
+            <div class="sim-input-group">
+
+                <label>Remaining Credits</label>
+
+                <input
+                    type="number"
+                    id="remainingCredits"
+                    min="1"
+                    placeholder="Example: 80"
+                >
+
+            </div>
+
+            <button
+                class="sim-btn"
+                onclick="calculateWhatIf()">
+
+                RUN SIMULATION
+
+            </button>
+
+        </div>
+
+        <div
+            id="simulationResult"
+            class="sim-result-box"
+            style="display:none;">
+        </div>
+
+    </div>
+
+    <footer>
+
+        Made with ❤️ for Students
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
